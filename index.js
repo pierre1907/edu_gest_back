@@ -3,10 +3,16 @@
 
 const express = require('express');
 const app = express();
+const connectDB = require("./config/db");
+const dotenv = require('dotenv').config();
+const {connect} = require("mongoose");
+
 const port = 1909;
 
-//importation la logique de la page home
-const homePage= require('./pages/homePage.js');
+//conection à la base de données
+connectDB();
+
+
 
 //middleware, pour traiter les données de la requete
 app.use(express.json());
